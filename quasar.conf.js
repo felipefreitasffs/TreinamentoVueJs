@@ -12,10 +12,10 @@ module.exports = function (ctx) {
     ],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
-      'material-icons' // optional, you are not bound to it
+      'material-icons', // optional, you are not bound to it
       // 'ionicons',
       // 'mdi',
-      // 'fontawesome'
+      'fontawesome'
     ],
     supportIE: true,
     build: {
@@ -55,7 +55,13 @@ module.exports = function (ctx) {
         'QListHeader',
         'QItem',
         'QItemMain',
-        'QItemSide'
+        'QItemSide',
+        'QField',
+        'QInput',
+        'QCard',
+        'QCardTitle',
+        'QCardMain',
+        'QCardSeparator'
       ],
       directives: [
         'Ripple'
@@ -64,9 +70,9 @@ module.exports = function (ctx) {
       plugins: [
         'Notify',
         'LocalStorage'
-      ]
+      ],
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
-      // i18n: 'de' // Quasar language
+      i18n: 'pt-br' // Quasar language
     },
     // animations: 'all' --- includes all animations
     animations: [],

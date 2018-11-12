@@ -5,6 +5,7 @@ const routes = [
     component: () => import('layouts/MyLayout.vue'),
     children: [
       {
+        name: 'home',
         path: '',
         component: () => import('pages/Index.vue'),
         meta: {
@@ -15,7 +16,10 @@ const routes = [
   },
   {
     path: '/login',
-    component: () => import('pages/Login.vue')
+    component: () => import('pages/Login.vue'),
+    props: (route) => ({
+      redirect: route.query.redirect
+    })
   }
 ]
 
