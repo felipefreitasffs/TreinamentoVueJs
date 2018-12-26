@@ -1,3 +1,4 @@
 # Quasar App
 
-> WIP
+Aplicação desenvolvida para ministrar o treinamento de vuejs.
+
