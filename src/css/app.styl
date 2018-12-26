@@ -1,1 +1,69 @@
 // app global css
+@import 'themes/common.variables'
+@import '../css/themes/app.select2.styl'
+
+.select2Buttons
+  text-align right !important
+  div
+    padding $select2ButtonsPadding !important
+    cursor pointer !important
+    text-transform capitalize !important
+    display inline-block !important
+    border 0 !important
+    margin $select2ButtonsMargin !important
+    background transparent !important
+    color $secondary !important
+    border-radius $select2ButtonsBorderRadius !important
+    font-size $select2ButtonsFontSize !important
+    font-weight $select2ButtonsFontWeight !important
+    &:hover
+      background $neutral !important
+
+.select2-container--default
+.select2-selection--multiple
+  border-radius $select2ElementBorderRadius !important
+  border $select2ElementBoder !important
+  background-color $select2ElementBackgroundColor !important
+  font-size $select2ElementFontSize !important
+  font-weight $select2ElementFontWeight !important
+
+.select2-selection__choice
+  background-color $select2TagBackgroundColor !important
+  color $select2TagColor !important
+  font-size $select2TagFontSize !important
+  font-weight $select2TagFontWeight !important
+  border-radius $select2TagBorderRadius !important
+  border $select2TagBorder !important
+  cursor default !important
+  .select2-selection__choice__remove
+    color $select2TagUnselectColor !important
+    font-size $select2TagUnselecFontSize !important
+    font-weight $select2TagUnselecFontWeight !important
+
+.select2-dropdown
+  border-radius $select2DropdownBorderRadius !important
+  border $select2DropdownBorder !important
+  background-color $select2DropdownBackgroundColor !important
+  .select2-results__option
+    color $select2DropdownOptionsColor !important
+    font-size $select2DropdownOptionsFontSize
+    &[aria-selected=true]
+      background-color $select2DropdownOptionsSelectedBackgroundColor !important
+      color $select2DropdownOptionsSelectedColor !important
+  .select2-results__option--highlighted[aria-selected]
+    background-color $select2DropdownOptionsHighlightedBackgroundColor !important
+    color $select2DropdownOptionsHighlightedColor !important
+
+.select2-container
+  z-index 9999 !important
+
+::-webkit-scrollbar
+  width 6px
+  height 11px
+
+::-webkit-scrollbar-track
+  background-color $neutral
+
+::-webkit-scrollbar-thumb
+  border-radius 2px
+  -webkit-box-shadow inset 15px 0 170px $primary

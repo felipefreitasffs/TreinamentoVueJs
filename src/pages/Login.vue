@@ -16,7 +16,7 @@ export default {
   methods: {
     saveUser (user) {
       this.$q.localStorage.set('user', user)
-      this.$router.push(this.redirect)
+      this.$router.push(this.redirect || '/')
     }
   }
 }

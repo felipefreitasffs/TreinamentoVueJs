@@ -22,16 +22,20 @@
         icon="fas fa-user"
         :label="capitalize($t('label.user'))"
         helper="entre com seu usuário"
+        :error="$v.username.$error"
+        :error-label="`* ${capitalize($t('message.requiredField', { field: $t('label.user') }))}`"
       >
-        <q-input color="primary" dark suffix="@landix.com" v-model="username" />
+        <q-input color="primary" dark suffix="@landix.com" v-model="username" @blur="$v.username.$touch"/>
       </q-field>
       <q-field
         dark
         icon="fas fa-key"
         :label="capitalize($t('label.password'))"
         helper="entre com sua senha"
+        :error="$v.password.$error"
+        :error-label="`* ${capitalize($t('message.requiredField', { field: $t('label.password') }))}`"
       >
-        <q-input color="primary" dark type="password" v-model="password" />
+        <q-input color="primary" dark type="password" v-model="password" @blur="$v.password.$touch"/>
       </q-field>
       <div class="row q-pt-lg">
         <div class="col-md-12 text-right">
@@ -48,6 +52,8 @@ import { format } from 'quasar'
 // destructuring to keep only what is needed
 const { capitalize } = format
 
+import { required } from 'vuelidate/lib/validators'
+
 export default {
   name: 'Login',
   data () {
@@ -57,13 +63,30 @@ export default {
       capitalize
     }
   },
+  validations: {
+    username: { required },
+    password: { required }
+  },
   computed: {
     fullUsername: function () { return this.username ? this.username + '@landix.com.br' : undefined }
   },
   methods: {
     login () {
+      this.$v.$touch()
+
+      if (this.$v.$error) {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.capitalize(this.$t('message.reviewField')),
+          icon: 'report_problem'
+        })
+        return
+      }
+
       this.$axios.post('/landix/login/', { username: this.fullUsername, password: this.password })
         .then((response) => {
+          console.log('response', response.data)
           this.$emit('logged', response.data)
         })
         .catch(() => {

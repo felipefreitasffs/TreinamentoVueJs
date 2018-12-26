@@ -10,10 +10,27 @@ const routes = [
         meta: {
           requiresAuth: true
         }
+      },
+      {
+        name: 'users',
+        path: 'users',
+        component: () => import('pages/Users.vue'),
+        meta: {
+          requiresAuth: true
+        }
+      },
+      {
+        name: 'branches',
+        path: 'branches',
+        component: () => import('pages/Branches.vue'),
+        meta: {
+          requiresAuth: true
+        }
       }
     ]
   },
   {
+    name: 'login',
     path: '/login',
     component: () => import('pages/Login.vue'),
     props: (route) => ({

@@ -5,7 +5,8 @@ module.exports = function (ctx) {
     // app plugins (/src/plugins)
     plugins: [
       'i18n',
-      'axios'
+      'axios',
+      'vuelidate'
     ],
     css: [
       'app.styl'
@@ -61,15 +62,30 @@ module.exports = function (ctx) {
         'QCard',
         'QCardTitle',
         'QCardMain',
-        'QCardSeparator'
+        'QCardSeparator',
+        'QTabs',
+        'QRouteTab',
+        'QBtnDropdown',
+        'QItemTile',
+        'QTable',
+        'QSearch',
+        'QTr',
+        'QTd',
+        'QChip',
+        'QRadio',
+        'QModal',
+        'QModalLayout',
+        'QCheckbox'
       ],
       directives: [
-        'Ripple'
+        'Ripple',
+        'CloseOverlay'
       ],
       // Quasar plugins
       plugins: [
         'Notify',
-        'LocalStorage'
+        'LocalStorage',
+        'Dialog'
       ],
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       i18n: 'pt-br' // Quasar language
